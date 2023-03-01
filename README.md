@@ -58,10 +58,10 @@
 
 ## cards テーブル
 
-| Column      | Type       | Options                   |
-| ----------- | ---------- | ------------------------- |
-| token_id    | string     | null: false, unique: true |
-| user        | references | foreign_key: true         |
+| Column         | Type       | Options                   |
+| -------------- | ---------- | ------------------------- |
+| customer_token | string     | null: false, unique: true |
+| user           | references | foreign_key: true         |
 
 ### Association
 
