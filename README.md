@@ -62,7 +62,7 @@
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
 | prefecture_id    | integer    | null: false                    |
-| municipalities   | string     | null: false                    |
+| municipality     | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
@@ -72,59 +72,3 @@
 
 - belongs_to :purchase_history
 - belongs_to :prefecture
-
-## category テーブル
-
-| Column   | Type    | Options     |
-| -------- | ------- | ----------- |
-| id       | integer | null: false |
-| category | string  | null: false |
-
-### Association
-
-- has_many :items
-
-## condition テーブル
-
-| Column    | Type    | Options     |
-| --------- | ------- | ----------- |
-| id        | integer | null: false |
-| condition | string  | null: false |
-
-### Association
-
-- has_many :items
-
-## shipping_cost テーブル
-
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| id            | integer | null: false |
-| shipping_cost | string  | null: false |
-
-### Association
-
-- has_many :items
-
-## prefecture テーブル
-
-| Column     | Type    | Options     |
-| ---------- | ------- | ----------- |
-| id         | integer | null: false |
-| prefecture | string  | null: false |
-
-### Association
-
-- has_many :items
-- has_many :orders
-
-## day_to_ship テーブル
-
-| Column      | Type    | Options     |
-| ----------- | ------- | ----------- |
-| id          | integer | null: false |
-| day_to_ship | string  | null: false |
-
-### Association
-
-- has_many :items
