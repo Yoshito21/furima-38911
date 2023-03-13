@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :purchase_order do
-    user_id       { Faker::Number.non_zero_digit }
-    item_id       { Faker::Number.non_zero_digit }
     token         { Faker::Internet.password }
     post_code     { Faker::Number.decimal_part(digits: 3) + '-' + Faker::Number.decimal_part(digits: 4) }
     municipality  { Faker::Address.city }

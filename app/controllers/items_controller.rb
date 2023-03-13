@@ -20,9 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    return unless @item.user != current_user && @item.purchase_history.present?
-
-    redirect_to root_path
   end
 
   def edit

@@ -35,7 +35,7 @@ RSpec.describe PurchaseOrder, type: :model do
         @purchase_order.valid?
         expect(@purchase_order.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
-      it 'municipalityが空だと保存できないこと' do
+      it 'Prefectureが空だと保存できないこと' do
         @purchase_order.prefecture_id = '1'
         @purchase_order.valid?
         expect(@purchase_order.errors.full_messages).to include("Prefecture can't be blank")
@@ -60,8 +60,18 @@ RSpec.describe PurchaseOrder, type: :model do
         @purchase_order.valid?
         expect(@purchase_order.errors.full_messages).to include('Phone number is invalid')
       end
-      it 'phone_numberが10、11桁以外だと保存できないこと' do
-        @purchase_order.phone_number = '123456789'
+      it 'phone_numberが12桁以上だと保存できないこと' do
+        @purchase_order.phone_number = '012345678901'
+        @purchase_order.valid?
+        expect(@purchase_order.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
+      end
+      it 'phone_numberが9桁以下だと保存できないこと' do
+        @purchase_order.phone_number = '012345678'
+        @purchase_order.valid?
+        expect(@purchase_order.errors.full_messages).to include('Phone number is invalid')
+      end
+      it 'phone_numberが0で始まらなければ保存できないこと' do
+        @purchase_order.phone_number = '1234567890'
         @purchase_order.valid?
         expect(@purchase_order.errors.full_messages).to include('Phone number is invalid')
       end
