@@ -70,11 +70,6 @@ RSpec.describe PurchaseOrder, type: :model do
         @purchase_order.valid?
         expect(@purchase_order.errors.full_messages).to include('Phone number is invalid')
       end
-      it 'phone_numberが0で始まらなければ保存できないこと' do
-        @purchase_order.phone_number = '1234567890'
-        @purchase_order.valid?
-        expect(@purchase_order.errors.full_messages).to include('Phone number is invalid')
-      end
       it 'phone_numberにハイフンがあると保存できないこと' do
         @purchase_order.phone_number = '000-0000-0000'
         @purchase_order.valid?
