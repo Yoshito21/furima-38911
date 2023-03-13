@@ -3,7 +3,7 @@ class PurchaseHistoriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if @item.user != current_user
+    if @item.user != current_user && @item.purchase_history.nil?
       @purchase_order = PurchaseOrder.new
     else
       redirect_to root_path
