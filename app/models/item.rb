@@ -8,7 +8,7 @@ class Item < ApplicationRecord
     validates :item_name, length: { maximum: 40 }
     validates :item_explanation, length: { maximum: 1000 }
     validates :item_price, format: { with: /\A[0-9]+\z/ },
-                           numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+                          numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
